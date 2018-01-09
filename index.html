@@ -1,10 +1,29 @@
-<html>
-    <body>
-        <h2>About myself</h2>
-<script src="script.js"></script>
+<!--
+In the index.html file use //inline script to combine these variables and output a brief profile of yourself like so:
+My name is <firstName> <lastName>. I have been at SCC for <yearsOfStudy> and plan to <goal> after completing my courses. 
+-->
 
-    My name is <firstName> <lastName>. 
-        I have been at SCC for <yearsOfStudy> and plan to <goal> after completing my courses. 
+
+<!doctype html>
+<html>
+<head>
+<title>About me</title>
+
+</head>
+<body>
+<!-- The external javascript file sets the variable values for use in the in-line javascript-->
+    <script src="script.js"></script>
     
-    </body>
+   
+    
+    <script type = "text/javascript">
+    
+        document.write("My name is ", firstName, lastName, ".  ",   "I have been at SCC for ", yearsOfStudy, " year." );
+        document.write("<br>", "I plan to get a ", goal, " once I have completed my studies.");
+        
+    </script>
+
+    
+    
+</body>
 </html>
