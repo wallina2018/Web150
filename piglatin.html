@@ -1,0 +1,68 @@
+<!--
+This program will convert a string to piglatin. 
+Andrew Wallin 
+Web 150 - Winter 2018
+
+Program requirements:
+If a word begins with a vowel, simply ad 'ay' to the end of it
+If a word begins with just one consonant, move that to end and at 'ay' after it.
+If a word begins with two consonants, add both to the end, and add 'ay' after them.
+If a string enterred is either empty, or contains a single letter word, reject it
+This program will accept a string of one word or multiple words, and display the piglatin for it.
+
+-->
+
+
+<!doctype html>
+<html>
+    <body>
+    <head>
+        <title>Pig Latin</title>
+    </head>    
+    <h2>PigLatin Translator Program</h2>
+        
+    <script type = "text/javascript">
+           var inputString = prompt("Please enter a word or sentence", "");
+           var words = inputString.split(" "); 
+        
+          for (var i = 0; i < (words.length) ; i++) {
+               
+             if (words[i] == "" || words[i].length == 1) {
+                document.write("Please enter a string with all words longer than one character!");
+                die();} 
+             else {
+                 
+             } // continue the program and turn the string into piglatin
+          }
+        
+           document.write("Your string '", inputString, "' translatted to piglatin is: " );
+           
+           for (var i = 0; i < (words.length) ; i++) {
+               
+               var charString = words[i].toLowerCase();
+               var firstLetter= words[i].charAt(0); 
+               var secondLetter = words[i].charAt(1);
+               var suffix= 'ay'; 
+               
+               if (firstLetter == 'a' || firstLetter ==  'e' ||firstLetter ==  'i'  || firstLetter ==  'o' || firstLetter == 'u') {
+                  // first letter is a vowel
+                     var pigLatinString = words[i] + suffix;}  
+               else if (secondLetter == 'a' || secondLetter ==  'e' ||secondLetter ==  'i'  || secondLetter ==  'o' || secondLetter == 'u') { 
+                 // first letter is a consonent, second letter is a vowel   
+                    var pigLatinString = words[i].replace(firstLetter,'') + firstLetter + suffix;}
+               else {
+                 // first two letters are consonants   
+                    var pigLatinString = words[i].replace(firstLetter,''); 
+                    pigLatinString = pigLatinString.replace(secondLetter,'') + firstLetter + secondLetter + suffix;} 
+            // Display each converted word within the for loop   
+            document.write(pigLatinString," ");
+               
+             }
+           
+            
+            
+    </script>
+
+   
+</body>
+</html>
