@@ -1,0 +1,70 @@
+<!--
+This program will display a list of student names and scores, with a given string in this
+format:
+"jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27"
+
+Andrew Wallin 
+Web 150 - Winter 2018
+
+Program requirements:
+display each student name and score 
+capitalize the first letter of student name
+display total # of students,
+display the lowest, highest, and average scores
+
+-->
+<!doctype html>
+<html>
+    <body>
+    <head>
+        <title>Web 150 HW3 - Making the Grade</title>
+    </head>    
+    <h2>Student Test Scores</h2>
+        
+    <script type = "text/javascript">
+          var grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
+          var student_array = grades.split(", "); 
+          var student_score = [];
+          var student_name = [];
+          var totalScore = 0;
+        
+          for (var i = 0; i < student_array.length ; i++) {
+          
+          var name = student_array[i].split(",");
+          var pos = name.indexOf("|");
+        
+          var justname = name.slice(0, pos);
+          student_name[i] = justname.charAt(0).toUpperCase() + justname.slice(1);
+          
+          var justscore = name.slice(pos +1);
+          student_score[i]= parseInt(justscore);
+              
+          totalScore = totalScore + student_score[i];
+             
+          document.write (student_name[i], " - " , student_score[i]); 
+          document.write ("<br>");   
+                  
+          }
+        
+          // Display the other stats
+        
+          student_score.sort();
+               
+          document.write ("<br>");  
+          document.write ("Number of students is:  ", student_array.length);       
+          document.write ("<br>");       
+          document.write ("Average score is: ", totalScore/student_array.length);       
+          document.write ("<br>");  
+ 
+          document.write ("The minimum score is:  ", student_score[0]);
+          document.write ("<br>"); 
+          document.write ("The maximum score is:  ", student_score[student_array.length -1]);
+          document.write ("<br>"); 
+        
+    
+            
+    </script>
+
+   
+</body>
+</html>
