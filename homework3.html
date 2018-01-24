@@ -28,25 +28,30 @@ display the lowest, highest, and average scores
           var student_name = [];
           var totalScore = 0;
         
+          student_array.sort();  
+        
           for (var i = 0; i < student_array.length ; i++) {
           
-          var name = student_array[i].split(",");
-          var pos = name.indexOf("|");
+              var name = student_array[i].split(",");
+              var pos = name.indexOf("|");
         
-          var justname = name.slice(0, pos);
-          student_name[i] = justname.charAt(0).toUpperCase() + justname.slice(1);
+              var justname = name.slice(0, pos);
+              student_name[i] = justname.charAt(0).toUpperCase() + justname.slice(1);
           
-          var justscore = name.slice(pos +1);
-          student_score[i]= parseInt(justscore);
+              var justscore = name.slice(pos +1);
+              student_score[i]= parseInt(justscore);
               
-          totalScore = totalScore + student_score[i];
+              totalScore = totalScore + student_score[i];
              
-          document.write (student_name[i], " - " , student_score[i]); 
-          document.write ("<br>");   
+              document.write (student_name[i], " - " , student_score[i]); 
+              document.write ("<br>");   
                   
           }
         
           // Display the other stats
+        
+        
+          // sort names alphabetically         
         
           student_score.sort();
                
